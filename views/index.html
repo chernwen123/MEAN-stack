@@ -1,0 +1,44 @@
+<!-- this IS an AngularJS template.  This is what we see when the site loads
+-->
+<!doctype html>
+<html ng-app="commentApp">
+
+<head>
+    <title>User Login and Sessions</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
+</head>
+
+<body>
+    <div ng-controller="myController">
+        <h2>Welcome. You are Logged In as <%= username %></h2>
+        <!-- these are routes -->
+        <a href="/logout">logout</a>
+        <a href="/user">Edit User</a>
+		
+    </div>
+	
+	<div ng-controller = "commentsController">
+	<h1> There are {{comments.length}} comments. Post more!!</h1>
+	<ul>
+	
+	<li ng-repeat ="comment in comments">
+		{{comment.name}}
+	</li>
+	</ul>
+	
+	<form ng-submit ="createComment()">
+		<input type="text" placeholder="Comment here" ng-model="commentName"></input>
+		<button type= "submit">Comment</button>
+	</form>
+	</div>
+    <hr>
+    <%= msg %>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-resource.min.js"></script>
+        <!-- this is our Angular Module -->
+		
+        <script type="text/javascript" src="/static/js/my_app.js"></script>
+		<!--<script type="text/javascript" src="/static/app.js"></script> -->
+</body>
+
+</html>
